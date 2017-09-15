@@ -9,7 +9,7 @@ Currently includes:
   guarantees of proper data shredding is guaranteed.)
 * A char sequences that pledges not to copy the underlying characters. Suitable for sequencing underlying char arrays to
   be shredded.
-  
+
 It also contains a passphrase class that:
 
 * Uses constant-time operations for equality checking.
