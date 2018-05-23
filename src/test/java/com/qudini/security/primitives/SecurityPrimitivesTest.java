@@ -93,7 +93,7 @@ public class SecurityPrimitivesTest extends TestCase {
                 .allMatch(c -> c == 'A');
 
         // Technically possible in a working algorithm but VERY unlikely.
-        assertTrue(!allAs);
+        assertFalse(allAs);
     }
 
     public void testNopReturnsZero() {
