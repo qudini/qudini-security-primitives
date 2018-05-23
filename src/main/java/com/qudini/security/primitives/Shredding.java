@@ -26,7 +26,7 @@ public final class Shredding {
         Arrays.fill(bytes, (byte) 0);
         final int maxByte = Byte.MAX_VALUE;
         final SecureRandom random = new SecureRandom();
-        for (int i = bytes.length - 1; i != 0; --i) {
+        for (int i = bytes.length - 1; 0 <= i; --i) {
 
             // Truncating to a byte directly from random.nextInt() would
             // create a distribution with an uneven likelihood of
@@ -49,7 +49,7 @@ public final class Shredding {
         Arrays.fill(chars, '\0');
         final int maxChar = (int) Character.MAX_VALUE;
         final SecureRandom random = new SecureRandom();
-        for (int i = chars.length - 1; i != 0; --i) {
+        for (int i = chars.length - 1; 0 <= i; --i) {
 
             // Truncating to a char directly from random.nextInt() would
             // create a distribution with an uneven likelihood of
@@ -68,13 +68,13 @@ public final class Shredding {
     public static void shred(final StringBuilder builder) {
         Objects.requireNonNull(builder);
 
-        for (int i = builder.length() - 1; i != 0; --i) {
+        for (int i = builder.length() - 1; 0 <= i; --i) {
             builder.setCharAt(i, '\0');
         }
 
         final int maxChar = (int) Character.MAX_VALUE;
         final SecureRandom random = new SecureRandom();
-        for (int i = builder.length() - 1; i != 0; --i) {
+        for (int i = builder.length() - 1; 0 <= i; --i) {
 
             // Truncating to a char directly from random.nextInt() would
             // create a distribution with an uneven likelihood of

@@ -2,6 +2,8 @@ package com.qudini.security.primitives;
 
 import junit.framework.TestCase;
 
+import static java.util.stream.IntStream.range;
+
 /**
  * Unit test for simple App.
  */
@@ -86,12 +88,12 @@ public class SecurityPrimitivesTest extends TestCase {
 
         assertEquals(manyAs.length, manyAsLength);
 
-        boolean nonAFound = false;
-        for (final char c : manyAs) {
-            nonAFound = (c != 'A');
-        }
+        boolean allAs = range(0, manyAs.length)
+                .mapToObj(i -> manyAs[i])
+                .allMatch(c -> c == 'A');
+
         // Technically possible in a working algorithm but VERY unlikely.
-        assertTrue(nonAFound);
+        assertTrue(!allAs);
     }
 
     public void testNopReturnsZero() {
