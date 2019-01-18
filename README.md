@@ -1,5 +1,7 @@
 # Qudini Security Primitives
 
+[![CircleCI](https://circleci.com/gh/qudini/qudini-security-primitives.svg?style=svg)](https://circleci.com/gh/qudini/qudini-security-primtives)
+
 Building blocks for security-oriented features.
 
 Currently includes:
