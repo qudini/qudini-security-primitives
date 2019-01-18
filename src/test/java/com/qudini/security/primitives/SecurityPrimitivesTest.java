@@ -4,9 +4,6 @@ import junit.framework.TestCase;
 
 import static java.util.stream.IntStream.range;
 
-/**
- * Unit test for simple App.
- */
 public class SecurityPrimitivesTest extends TestCase {
 
     private final static String userName = "Test User";
@@ -63,10 +60,10 @@ public class SecurityPrimitivesTest extends TestCase {
     }
 
     public void testPassphraseEquality() {
-        assertTrue(passphrase1.equals(passphrase2));
+        assertEquals(passphrase1, passphrase2);
         assertFalse(passphrase2.equals(passphrase3));
 
-        assertTrue(internationalPassphrase1.equals(internationalPassphrase2));
+        assertEquals(internationalPassphrase1, internationalPassphrase2);
         assertFalse(internationalPassphrase2.equals(internationalPassphrase3));
     }
 
