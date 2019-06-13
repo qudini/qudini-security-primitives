@@ -3,8 +3,8 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.qudini</groupId>
     <artifactId>qudini-security-primitives</artifactId>
-    <packaging>jar</packaging>
-    <version>1.0.0</version>
+    <packaging>pom</packaging>
+    <version>1.1-SNAPSHOT</version>
     <name>qudini-security-primitives</name>
     <url>https://github.com/qudini/qudini-security-primitives</url>
     <properties>
@@ -12,6 +12,17 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
+    <distributionManagement>
+        <repository>
+            <id>bintray-qudini-qudini-maven</id>
+            <name>qudini-qudini-maven</name>
+            <url>https://api.bintray.com/maven/qudini/qudini-maven/qudini-security-primitives/;publish=1</url>
+        </repository>
+    </distributionManagement>
+    <scm>
+        <developerConnection>scm:git:git@github.com:qudini/qudini-security-primitives.git</developerConnection>
+        <connection>scm:git:git@github.com:qudini/qudini-security-primitives.git</connection>
+    </scm>
     <build>
         <plugins>
             <plugin>
