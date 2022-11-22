@@ -1,12 +1,13 @@
 package com.qudini.security.primitives;
 
-import com.lambdaworks.crypto.SCrypt;
+import com.password4j.Hash;
+import com.password4j.Password;
+import com.password4j.ScryptFunction;
 
 import javax.annotation.CheckReturnValue;
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.nio.charset.Charset;
-import java.security.GeneralSecurityException;
 import java.security.SecureRandom;
 import java.util.Base64;
 import java.util.List;
@@ -299,25 +300,12 @@ public final class Passphrase implements AutoCloseable {
         System.arraycopy(salt, 0, hashingSalt, 0, salt.length);
         System.arraycopy(pepper, 0, hashingSalt, salt.length, pepper.length);
 
-        try {
-            final byte[] rawResult = SCrypt.scrypt(
+        Hash hash = Password.hash(String.valueOf(charArray))
+                .addSalt(new String(hashingSalt)) // use this for backwards compat rather than .addSalt(...).addPepper(...)
+                .with(ScryptFunction.getInstance((int) processorCost, (int) memoryCost, parallelisationParameter, derivedKeyLength));
 
-                    // TODO: stop converting to strings, otherwise the char shredding is ineffective.
-                    String.valueOf(charArray).getBytes(Charset.forName("utf-8")),
-                    hashingSalt,
+        return Base64.getEncoder().encode(hash.getBytes());
 
-                    (int) processorCost,
-                    (int) memoryCost,
-                    parallelisationParameter,
-                    derivedKeyLength
-            );
-
-            return Base64.getEncoder().encode(rawResult);
-
-
-        } catch (final GeneralSecurityException exception) {
-            throw new RuntimeException(exception);
-        }
     }
 
     /**
