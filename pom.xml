@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.qudini</groupId>
     <artifactId>qudini-security-primitives</artifactId>
-    <version>1.1-SNAPSHOT</version>
+    <version>1.2-SNAPSHOT</version>
     <name>qudini-security-primitives</name>
     <url>https://github.com/qudini/qudini-security-primitives</url>
     <properties>
@@ -66,10 +66,11 @@
             <artifactId>jsr305</artifactId>
             <version>3.0.1</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.password4j/password4j -->
         <dependency>
-            <groupId>com.lambdaworks</groupId>
-            <artifactId>scrypt</artifactId>
-            <version>1.4.0</version>
+            <groupId>com.password4j</groupId>
+            <artifactId>password4j</artifactId>
+            <version>1.6.2</version>
         </dependency>
     </dependencies>
 </project>
